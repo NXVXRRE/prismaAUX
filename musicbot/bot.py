@@ -889,7 +889,8 @@ class MusicBot(discord.Client):
 
         Change spaces to plus signs.
         """
-        parsed_response = msg.replace("+", " ")
+        mesg = msg.replace("+", " ")
+        parsed_response = mesg.replace("\plus", "+")
         return Response(parsed_response)
 
     async def cmd_play(self):
