@@ -8,3 +8,6 @@ dectalk/
 discord.log
 config/options.ini
 config/permissions.ini
+config/blacklist.txt
+config/whitelist.txt
+config/autoplaylist.txt
