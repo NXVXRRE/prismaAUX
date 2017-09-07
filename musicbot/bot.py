@@ -1903,11 +1903,11 @@ class MusicBot(discord.Client):
                 return
 
         if message.author.id in self.blacklist and message.author.id != self.config.owner_id:
-            self.safe_print("[User blacklisted] {0.id}/{0.name} ({1})".format(message.author, message_content))
+            self.safe_print("        X • {0.id}/{0.name} '{1}'".format(message.author, message_content))
             return
 
         else:
-            self.safe_print("[Command] {0.id}/{0.name} ({1})".format(message.author, message_content))
+            self.safe_print("          • {0.id}/{0.name} '{1}'".format(message.author, message_content))
 
         user_permissions = self.permissions.for_user(message.author)
 
