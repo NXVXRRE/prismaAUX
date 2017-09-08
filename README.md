@@ -1,28 +1,30 @@
-# RhinoBot: The music bot for Discord.
+# prismaAUX • Discover your new jam.
 
-MusicBot is a Discord music bot written in [Python](https://www.python.org "Python homepage"). It plays requested songs and if the queue becomes empty it will play through a list of existing songs.
+prismaAUX is a Discord music bot written in [Python](https://www.python.org "Python homepage") by [Just-Some-Bots](https://github.com/Just-Some-Bots) (base code) and rewritten and modified by [novocytal](https://github.com/novocytal). It plays back all songs played on prismaNOW by the community so you can listen to new songs, and discover new songs you might like.
 
-### How do I set it up?
+### Ideas
 
-[CLICK HERE](https://github.com/SexualRhinoceros/MusicBot/wiki) to find the guide that suites your operating system.
+As a new Python developer and a server owner, I realize that there are some server owners that want features specific to their server, and want to customize commands for an optimal experience for their members and themselves. That's why I've decided to start to work on a new series of apps -- PRISMA:develop, and PRISMA:engage. 
 
-### Commands
+### PRISMA:develop
 
-Commands are listed [here](https://github.com/SexualRhinoceros/MusicBot/wiki/Commands "Commands list").
+Help develop the Prisma platform by collaborating with developers of the Prisma community and contribute your experience, and even get the exposure you need to get big.
 
-### Configuration
+### PRISMA:engage
 
-The main configuration file is `config/options.ini`, but is not included.  Simply make a copy of `example_options.ini` and rename to `options.ini`.  See `example_options.ini` for more information on how to configure it.
+You don't need to speak code to help contribute. Suggest new features, report issues, and as a server owner, you can get commands created that are exclusive to your Discord server.
 
-[CLICK HERE](https://github.com/SexualRhinoceros/MusicBot/wiki/Configuration) for more details.
+### Commands & functionality
 
-### Great, now how do I use it?
-Download the bot, set the dependencies up, then run `runbot.bat`! (or `run.sh` on mac/linux)  Read the tutorial if you don't know what to do.
+Video [here](http://about.prismaaux.us.to/ "Prisma platform: 2.0 update").
 
-If you have any errors, read the FAQ. If that didn't help, you can ask for assistance on the discord help server. Is is recommended to take screenshots so the developers can see errors.
+### Configuration (coming soon)
 
-[Rhino Help Server](http://discord.me/rhinohelp "Discord link")
+Pick your version of prismaAUX. Developer release (less stable, but more features), or public release? When PRISMA:engage and PRISMA:develop applications come out, you can choose either one. Simply click the prismaAUX icon on the PRISMA:develop/inspire sidebar, click Install if you haven't, pick your file destination, and you will be guided through setup. For now, the Prisma platform cannot be self-hosted.
 
-### FAQ
+### Okay then, how do I add it to my server?
+prismaAUX is a radio bot that plays songs that were played with prismaNOW, meaning that what you're listening to may be from another server. Click [here](http://prismaaux.us.to/) to add prismaAUX, but if you want to add On-Demand (listen to songs you want to listen to), click [here](http://prismanow.us.to/) for prismaNOW.
 
-Some frequently asked questions are listed on the wiki [here](https://github.com/SexualRhinoceros/MusicBot/wiki/FAQ "Wiki").
+### Any more questions?
+
+Email me at novocytal@outlook.com or add prismaNOW [here](http://prismanow.us.to/) and use command .contact (your question) to contact me.
