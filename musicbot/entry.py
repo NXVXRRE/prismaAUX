@@ -207,14 +207,14 @@ class URLPlaylistEntry(BasePlaylistEntry):
 
     # noinspection PyShadowingBuiltins
     async def _really_download(self, *, hash=False):
-        print("prismaAUX • Started: {}".format(self.url))
+        print("prismaAUX • Started: {}".format(self.title))
 
         try:
             result = await self.playlist.downloader.extract_info(self.playlist.loop, self.url, download=True)
         except Exception as e:
             raise ExtractionError(e)
 
-        print("          • Complete: {}".format(self.url))
+        print("          • Complete: {}".format(self.title))
 
         if result is None:
             raise ExtractionError("ytdl broke and hell if I know why")
