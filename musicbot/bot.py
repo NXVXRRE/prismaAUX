@@ -893,7 +893,7 @@ class MusicBot(discord.Client):
         parsed_response = mesg.replace("\plus", "+")
         return Response(parsed_response)
 
-    async def cmd_play(self):
+    async def new_play(self):
         """
         Usage:
             -play <search / url>
@@ -907,7 +907,7 @@ class MusicBot(discord.Client):
         time.sleep(20)
         await self.safe_delete_message(dep_msg)
 
-    async def old_play(self, player, channel, author, permissions, leftover_args, song_url):
+    async def cmd_p(self, player, channel, author, permissions, leftover_args, song_url):
         """
         Usage:
             {command_prefix}play song_link
