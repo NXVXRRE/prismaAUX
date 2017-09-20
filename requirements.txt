@@ -1,4 +1,4 @@
-discord.py[voice] ~= 0.16.9
+discord.py[voice] ~= 0.16.11
 youtube_dl
 pip
 google
