@@ -1,7 +1,7 @@
 import os.path
 
-MAIN_VERSION = '2.2.1'
-SUB_VERSION = '_b rewrite'
+MAIN_VERSION = '2.4.3'
+SUB_VERSION = '_a'
 VERSION = MAIN_VERSION + SUB_VERSION
 
 AUDIO_CACHE_PATH = os.path.join(os.getcwd(), 'audio_cache')
