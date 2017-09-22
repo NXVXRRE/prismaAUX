@@ -7,6 +7,7 @@ import inspect
 import aiohttp
 import discord
 import asyncio
+import rollbar
 import traceback
 
 from discord import utils
@@ -39,6 +40,7 @@ from .opus_loader import load_opus_lib
 from .constants import VERSION as BOTVERSION
 from .constants import DISCORD_MSG_CHAR_LIMIT, AUDIO_CACHE_PATH
 
+rollbar.init('6807b485bee8444f81e02f3493d47907')
 
 load_opus_lib()
 
@@ -277,6 +279,7 @@ class MusicBot(discord.Client):
                             "Figure out what is blocking UDP and disable it.  "
                             "It's most likely a system firewall or overbearing anti-virus firewall.  "
                         )
+                        rollbar.report_message("Network error. Cannot establish connection to Discord voice servers. Something might be blocking UDP connections? Either an OS firewall, or anti-virus firewall.")
 
             return voice_client
 
@@ -561,6 +564,7 @@ class MusicBot(discord.Client):
                 "Bot cannot login, bad credentials.",
                 "Fix your Email or Password or Token in the options file.  "
                 "Remember that each field should be on their own line.")
+            rollbar.report_message("Bot cannot login. Bad credentials.")
 
         finally:
             try:
@@ -608,6 +612,7 @@ class MusicBot(discord.Client):
                 "The bot needs its own account to function.  "
                 "The OwnerID is the id of the owner, not the bot.  "
                 "Figure out which one is which and use the correct information.")
+            rollbar.report_message("Owner ID or incorrect credentials specfified.")
 
         self.init_ok = True
 
@@ -785,6 +790,7 @@ class MusicBot(discord.Client):
 
         if not user_mentions:
             raise exceptions.CommandError("No users listed.", expire_in=20)
+            rollbar.report_message("No users listed")
 
         if option not in ['+', '-', 'add', 'remove']:
             raise exceptions.CommandError(
@@ -868,6 +874,7 @@ class MusicBot(discord.Client):
 
         except:
             raise exceptions.CommandError('Invalid URL provided:\n{}\n'.format(server_link), expire_in=30)
+            rollbar.report_message('cmd_joinserver • Invalid invite URL provided.')
 
     @owner_only
     async def cmd_announce(self, args, leftover_args):
@@ -933,6 +940,7 @@ class MusicBot(discord.Client):
             info = await self.downloader.extract_info(player.playlist.loop, song_url, download=False, process=False)
         except Exception as e:
             raise exceptions.CommandError(e, expire_in=30)
+            rollbar.report_exc_info(e)
 
         if not info:
             raise exceptions.CommandError("That video cannot be played.", expire_in=30)
@@ -956,6 +964,7 @@ class MusicBot(discord.Client):
                     "Error extracting info from search string, youtubedl returned no data.  "
                     "You may need to restart the bot if this continues to happen.", expire_in=30
                 )
+                rollbar.report_message('YTDL did not return data on search string')
 
             if not all(info.get('entries', [])):
                 # empty list, no data
@@ -1686,6 +1695,7 @@ class MusicBot(discord.Client):
             info = await self.downloader.extract_info(self.loop, song_url.strip('<>'), download=False, process=False)
         except Exception as e:
             raise exceptions.CommandError("Could not extract info from input url\n%s\n" % e, expire_in=25)
+            rollbar.report_message("cmd_pldump • Could not extract info from input URL")
 
         if not info:
             raise exceptions.CommandError("Could not extract info from input url, no data.", expire_in=25)
