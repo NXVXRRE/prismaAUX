@@ -2,4 +2,5 @@ discord.py[voice] ~= 0.16.11
 youtube_dl
 pip
 google
+rollbar
 cffi==1.6.0; sys_platform == 'win32'
